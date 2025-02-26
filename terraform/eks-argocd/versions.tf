@@ -28,12 +28,12 @@ terraform {
     }
   }
 
-  # ##  Used for end-to-end testing on project; update to suit your needs
-  # backend "s3" {
-  #   bucket = "terraform-ssp-github-actions-state"
-  #   region = "us-west-2"
-  #   key    = "e2e/ipv4-prefix-delegation/terraform.tfstate"
-  # }
+  backend "s3" {
+      bucket  = "bst-tfstate-888"
+      encrypt = true
+      key     = "terraform.tfstate"    
+      region  = "eu-west-2"
+  }
 }
 
 provider "argocd" {
